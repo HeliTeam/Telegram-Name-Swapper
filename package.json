@@ -1,0 +1,68 @@
+{
+  "name": "telegram-name-swapper",
+  "version": "1.0.0",
+  "description": "Автоматическое обновление имени в Telegram с отображением времени",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64",
+    "build:portable": "electron-builder --win portable --x64"
+  },
+  "author": "Klieer (@klir1337) - HeliTeam",
+  "license": "MIT",
+  "build": {
+    "appId": "com.heliteam.telegram.name.swapper",
+    "productName": "Telegram Name Swapper",
+    "npmRebuild": false,
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico",
+      "sign": null,
+      "verifyUpdateCodeSignature": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "installerIcon": "assets/icon.png",
+      "uninstallerIcon": "assets/icon.png"
+    },
+    "portable": {
+      "artifactName": "TelegramNameSwapper-Portable.exe"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ]
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "telegram": "^2.26.22"
+  },
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "electron-packager": "^17.1.2",
+    "png-to-ico": "^3.0.1",
+    "rcedit": "^5.0.2"
+  }
+}
