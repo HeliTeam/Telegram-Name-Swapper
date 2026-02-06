@@ -6,7 +6,8 @@
   "scripts": {
     "start": "electron .",
     "build": "electron-builder --win --x64",
-    "build:portable": "electron-builder --win portable --x64"
+    "build:portable": "electron-builder --win portable --x64",
+    "pack": "electron-packager . \"Telegram Name Swapper\" --platform=win32 --arch=x64 --icon=assets/icon.ico --out=releases --overwrite --asar"
   },
   "author": "Klieer (@klir1337) - HeliTeam",
   "license": "MIT",
@@ -34,7 +35,8 @@
       ],
       "icon": "assets/icon.ico",
       "sign": null,
-      "verifyUpdateCodeSignature": false
+      "verifyUpdateCodeSignature": false,
+      "signingHashAlgorithms": []
     },
     "nsis": {
       "oneClick": false,
